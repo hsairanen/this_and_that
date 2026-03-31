@@ -252,3 +252,34 @@ do_analysis(is_commute=True)
 # For non-commuting hours
 do_analysis(is_commute=False)
 
+#%%
+
+# PROBLEM (based on the case)
+# Impact on the total number of shared rides, 
+# the proportion of shared rides that were matched
+# driver payout per trip
+
+# Control group (2 min)
+# Total number of shared rides
+cg['trips'].sum()
+# Treatment group (5min)
+# Total number of shared rides
+tg['trips'].sum()
+# Decrease
+(cg['trips'].sum()-tg['trips'].sum())/cg['trips'].sum()
+
+# Total matches
+cg['total_matches'].sum()
+tg['total_matches'].sum()
+# Shares
+cg['total_matches'].sum() / cg['trips'].sum()
+tg['total_matches'].sum() / tg['trips'].sum()
+
+#%%
+
+# Total driver payout per trip
+cg['total_driver_payout'].sum() / cg['trips'].sum()
+tg['total_driver_payout'].sum() / tg['trips'].sum()
+
+
+# %%
